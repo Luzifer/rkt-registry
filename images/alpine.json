@@ -1,0 +1,18 @@
+{
+  "acVersion": "0.8.8",
+  "acKind": "ImageManifest",
+  "name": "rkt.luzifer.io/alpine",
+  "labels": [
+    { "name": "version", "value": "{{ .version }}-{{ .date }}" },
+    { "name": "os", "value": "linux" },
+    { "name": "arch", "value": "amd64" }
+  ],
+  "app": {
+    "exec": ["/bin/sh"],
+    "user": "0",
+    "group": "0"
+  },
+  "annotations": [
+    { "name": "authors", "value": "Knut Ahlers <knut@luzifer.io>" }
+  ]
+}
