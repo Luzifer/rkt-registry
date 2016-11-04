@@ -1,0 +1,5 @@
+rootfs
+manifest
+pubkeys.gpg
+*.aci
+*.aci.asc
