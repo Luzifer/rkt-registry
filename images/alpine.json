@@ -3,7 +3,7 @@
   "acKind": "ImageManifest",
   "name": "rkt.luzifer.io/alpine",
   "labels": [
-    { "name": "version", "value": "{{ .version }}-{{ .date }}" },
+    { "name": "version", "value": "{{ .version }}" },
     { "name": "os", "value": "linux" },
     { "name": "arch", "value": "amd64" }
   ],
