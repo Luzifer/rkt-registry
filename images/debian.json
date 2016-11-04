@@ -3,7 +3,7 @@
   "acKind": "ImageManifest",
   "name": "rkt.luzifer.io/debian",
   "labels": [
-    { "name": "version", "value": "jessie-{{ .date }}" },
+    { "name": "version", "value": "{{ .version }}-{{ .date }}" },
     { "name": "os", "value": "linux" },
     { "name": "arch", "value": "amd64" }
   ],

@@ -13,7 +13,7 @@ pubkeys:
 images: debian-jessie
 
 debian-%:
-	korvike -v date=$(DATE) < images/debian-$*.json > manifest
+	korvike -v date=$(DATE) -v version="$*" < images/debian.json > manifest
 	sudo debootstrap --verbose --variant=minbase --include=iproute,iputils-ping --arch=amd64 $* rootfs
 	sudo rm -rf rootfs/var/cache/*
 	sudo tar -czf debian-$*-$(DATE).aci manifest rootfs
