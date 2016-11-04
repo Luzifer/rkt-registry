@@ -23,7 +23,10 @@ debian-%:
 
 alpine-%:
 	korvike -v date=$(DATE) -v version="$*" < images/alpine.json > manifest
-	docker run --rm -ti -v $(CURDIR):/data alpine:latest sh -c 'apk --update add bash tzdata && exec /data/images/alpine.sh -r $*'
+	sudo rkt run --dns=8.8.8.8 \
+		--volume data,kind=host,source=$(CURDIR) --mount volume=data,target=/data \
+		quay.io/coreos/alpine-sh --exec=/bin/sh -- \
+		-c 'apk add --update bash tzdata && /data/images/alpine.sh -r $*'
 	sudo tar -czf alpine-$*-$(DATE).aci manifest rootfs
 	$(MAKE) sign-alpine-$*-$(DATE).aci
 	aws s3 cp --acl=public-read alpine-$*-$(DATE).aci s3://$(BUCKET)/linux/amd64/$(BUCKET)/
