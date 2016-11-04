@@ -1,7 +1,7 @@
 {
   "acVersion": "0.8.8",
   "acKind": "ImageManifest",
-  "name": "debian",
+  "name": "rkt.luzifer.io/debian",
   "labels": [
     { "name": "version", "value": "jessie-{{ .date }}" },
     { "name": "os", "value": "linux" },
