@@ -18,8 +18,8 @@ debian-%:
 	sudo rm -rf rootfs/var/cache/*
 	sudo tar -czf debian-$*-$(DATE).aci manifest rootfs
 	$(MAKE) sign-debian-$*-$(DATE).aci
-	aws s3 cp --acl=public-read debian-$*-$(DATE).aci s3://$(BUCKET)/linux/amd64/
-	aws s3 cp --acl=public-read debian-$*-$(DATE).aci.asc s3://$(BUCKET)/linux/amd64/
+	aws s3 cp --acl=public-read debian-$*-$(DATE).aci s3://$(BUCKET)/linux/amd64/$(BUCKET)/
+	aws s3 cp --acl=public-read debian-$*-$(DATE).aci.asc s3://$(BUCKET)/linux/amd64/$(BUCKET)/
 
 sign-%:
 	rm -f $*.asc
