@@ -1,0 +1,15 @@
+begin
+
+set-name rkt.luzifer.io/golang
+label add version {{ .version }}
+dep add rkt.luzifer.io/alpine:v3.4
+
+copy build/golang.sh /tmp/golang.sh
+
+run --engine=chroot -- /tmp/golang.sh
+
+environment add GOPATH /go
+environment add PATH /go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+write golang-{{ .version }}.aci
+

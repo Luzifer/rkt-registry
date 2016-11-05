@@ -3,3 +3,4 @@ manifest
 pubkeys.gpg
 *.aci
 *.aci.asc
+build
